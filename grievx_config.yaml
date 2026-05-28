@@ -1,0 +1,18 @@
+# GrievX — complaint class metadata (for routing after YOLO prediction)
+
+classes:
+  Crop_Damage:
+    problem_category: Agriculture
+    display_name: Crop Damage
+  Drainage_issue:
+    problem_category: Water
+    display_name: Drainage Blockage
+  Drinking_water_shortage:
+    problem_category: Water
+    display_name: Drinking Water Shortage
+  Industrial_Pollution_complaint:
+    problem_category: Environment
+    display_name: Industrial Pollution
+  Road_Damage:
+    problem_category: Roads
+    display_name: Road Damage

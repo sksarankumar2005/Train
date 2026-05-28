@@ -1,0 +1,10 @@
+opencv-python>=4.8.0
+numpy>=1.24.0,<2.0
+matplotlib>=3.8.0
+tqdm>=4.66.0
+ultralytics>=8.4.0
+pyyaml>=6.0
+torch>=2.0.0
+torchvision>=0.15.0
+Flask>=2.3.0
+gunicorn>=20.1.0

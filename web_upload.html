@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GrievX Video Upload</title>
+  </head>
+  <body>
+    <h1>Upload Video for GrievX Prediction</h1>
+    <form id="up" enctype="multipart/form-data">
+      <input type="file" name="file" accept="video/*" required />
+      <label>Max frames: <input name="max_frames" value="30" type="number" min="1" max="200" /></label>
+      <button type="submit">Upload</button>
+    </form>
+    <pre id="out"></pre>
+    <script>
+      document.getElementById('up').onsubmit = async e => {
+        e.preventDefault();
+        const f = e.target.file.files[0];
+        const fd = new FormData(); fd.append('file', f);
+        fd.append('max_frames', e.target.max_frames.value || '30');
+        const out = document.getElementById('out');
+        out.textContent = 'Uploading...';
+        try {
+          const res = await fetch('/predict', { method: 'POST', body: fd });
+          const j = await res.json();
+          out.textContent = JSON.stringify(j, null, 2);
+        } catch (err) {
+          out.textContent = 'Error: ' + err;
+        }
+      }
+    </script>
+  </body>
+</html>
